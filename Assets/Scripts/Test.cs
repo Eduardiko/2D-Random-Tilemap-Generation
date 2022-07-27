@@ -29,7 +29,7 @@ public class Test : MonoBehaviour
         for (int row = 0; row < grid.Length; row++)
         {
             builder = new StringBuilder();
-            for (int col = 0; col < grid[0].Length; col++)
+            for (int col = -3; col < grid[0].Length; col++)
             {
                 builder.Append(valuesManager.GetGridValueIncludingOffset(col, row) + " ");
             }

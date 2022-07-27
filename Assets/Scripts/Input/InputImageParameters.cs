@@ -83,8 +83,8 @@ namespace WaveFunctionCollapse
 
             //+1 because indexes start from 0 but width/height start from 1
                 //If there is 1 tile it will be index 0 but have a w/h of 1,1
-            height = Math.Abs(maxX - minX) + 1;
-            width = Math.Abs(maxY - minY) + 1;
+            height = Math.Abs(maxY - minY) + 1;
+            width = Math.Abs(maxX - minX) + 1;
 
             //Security Check 2
             int tileCount = width * height;
