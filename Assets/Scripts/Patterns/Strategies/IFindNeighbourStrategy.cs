@@ -5,11 +5,8 @@ using UnityEngine;
 
 namespace WaveFunctionCollapse
 {
-    public class IFindNeighbourStrategy
+    public interface IFindNeighbourStrategy
     {
-        internal Dictionary<int, PatternNeighbours> FindNeighbours(PatternDataResults patternFinderResult)
-        {
-            throw new NotImplementedException();
-        }
+        Dictionary<int, PatternNeighbours> FindNeighbours(PatternDataResults patternFinderResult);
     }
 }

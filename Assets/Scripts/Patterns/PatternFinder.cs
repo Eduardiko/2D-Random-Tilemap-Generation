@@ -13,7 +13,7 @@ namespace WaveFunctionCollapse
             Dictionary<string, PatternData> patternHashCodeDictionary = new Dictionary<string, PatternData>();
             Dictionary<int, PatternData> patternIndexDictionary = new Dictionary<int, PatternData>();
 
-            //PatterGrid can have different size from ValueGrid depending on PatternSize
+            //PatternGrid can have different size from ValueGrid depending on PatternSize
             Vector2 sizeOfGrid = valueManager.GetGridSize();
             int patternGridSizeX = 0;
             int patternGridSizeY = 0;
@@ -25,7 +25,7 @@ namespace WaveFunctionCollapse
             if(patternSize < 3)
             {
                 patternGridSizeX = (int)sizeOfGrid.x + 3 - patternSize;
-                patternGridSizeX = (int)sizeOfGrid.y + 3 - patternSize;
+                patternGridSizeY = (int)sizeOfGrid.y + 3 - patternSize;
                 
                 rowMax = patternGridSizeY - 1;
                 colMax = patternGridSizeX - 1;
@@ -50,7 +50,7 @@ namespace WaveFunctionCollapse
 
             for (int row = rowMin; row < rowMax; row++)
             {
-                for (int col = rowMin; col < colMax; col++)
+                for (int col = colMin; col < colMax; col++)
                 {
                     int[][] gridValues = valueManager.GetPatternValuesFromGridAt(col, row, patternSize);
                     string hashValue = HashCodeCalculator.CalculateHashCode(gridValues);

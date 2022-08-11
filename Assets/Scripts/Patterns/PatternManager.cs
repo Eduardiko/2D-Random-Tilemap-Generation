@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Text;
 using UnityEngine;
 
 namespace WaveFunctionCollapse
@@ -30,8 +31,30 @@ namespace WaveFunctionCollapse
         {
             //Find Neighbours and Patterns
             var patternFinderResult = PatternFinder.GetPatternDataFromGrid(valueManager, _patternSize, equalWeights);
-            patternDataIndexDictionary = patternFinderResult.PatternIndexDictionary;
 
+            //Test 3 Code
+            StringBuilder builder = null;
+            List<string> list = new List<string>();
+
+            for (int row = 0; row < patternFinderResult.GetGridLengthY(); row++)
+            {
+                builder = new StringBuilder();
+                for (int col = 0; col < patternFinderResult.GetGridLengthX(); col++)
+                {
+                    builder.Append(patternFinderResult.GetIndexAt(col, row) + " ");
+                }
+
+                list.Add(builder.ToString());
+            }
+
+            list.Reverse();
+            foreach (var item in list)
+            {
+                Debug.Log(item);
+            }
+            //
+
+            patternDataIndexDictionary = patternFinderResult.PatternIndexDictionary;
             GetPatternNeighbours(patternFinderResult, strategy);
 
         }
